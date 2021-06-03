@@ -18,7 +18,7 @@ export const useDispatch = () => {
 };
 
 export const useSelector = (selector) => {
-    const { state } = useContext(Context);
-    return selector(state);
+  const { state } = useContext(Context);
+  return selector(state);
 };
 

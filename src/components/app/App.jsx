@@ -56,7 +56,7 @@ function App() {
         type="color"
         value={current}
         onChange={({ target }) => dispatch({
-          type: target, 
+          type: 'RECORD', 
           payload: target.value })
         }
       />

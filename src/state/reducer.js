@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 
 
 export const initialState = {
@@ -7,6 +8,7 @@ export const initialState = {
 };
 
 export function reducer(state, action) {
+    console.log(state.current);
   switch(action.type){
     case 'UNDO':
       return {
@@ -22,10 +24,11 @@ export function reducer(state, action) {
       };
     case 'RECORD':
       return {
-        before: [...state, state.current],
+        before: [...state.before, state.current],
+        after: [...state.after],
         current: action.payload,
       };
     default:
-      return state;
+      throw new Error('Error!!!!!');
   }
 }
