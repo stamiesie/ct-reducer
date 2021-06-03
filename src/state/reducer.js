@@ -1,6 +1,8 @@
+
+
 export const initialState = {
   before: [],
-  current: init,
+  current: '#FF0000',
   after: [],
 };
 
@@ -8,21 +10,21 @@ export function reducer(state, action) {
   switch(action.type){
     case 'UNDO':
       return {
-        after: [current, ...after],
-        current: before[before.length - 1],
-        before: before.slice(0, -1), 
+        after: [state.current, ...state.after],
+        current: state.before[state.before.length - 1],
+        before: state.before.slice(0, -1), 
       };
     case 'REDO':
       return { 
-        before: [...before, current ],
-        current: after[0],
-        after: after.slice(1),
+        before: [...state.before, state.current],
+        current: state.after[0],
+        after: state.after.slice(1),
       };
     case 'RECORD':
       return {
-          before: [...state, current]
-        current:
-        };
+        before: [...state, state.current],
+        current: action.payload,
+      };
     default:
       return state;
   }
