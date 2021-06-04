@@ -1,8 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from '../../state/provider';
 
-
-
 // const useRecord = (init) => {
 // const [before, setBefore] = useState([]);
 // const [current, setCurrent] = useState(init);
@@ -45,14 +43,14 @@ function App() {
     dispatch({ type: 'REDO' });
   };
 
- 
   // const { current, undo, redo, record } = useRecord('#FF0000');
 
   return (
     <>
-      <button onClick={undo}>undo</button>
-      <button onClick={redo}>redo</button>
+      <button aria-label="undo" onClick={undo}>undo</button>
+      <button aria-label="redo" onClick={redo}>redo</button>
       <input
+        alt="colorPicker"
         type="color"
         value={current}
         onChange={({ target }) => dispatch({
@@ -60,9 +58,9 @@ function App() {
           payload: target.value })
         }
       />
-      <div
+      <main aria-label="colorDisplay"
         style={{ backgroundColor: current, width: '10rem', height: '10rem' }}
-      ></div>
+      ></main>
     </>
   );
 }

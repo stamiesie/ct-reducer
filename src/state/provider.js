@@ -21,4 +21,3 @@ export const useSelector = (selector) => {
   const { state } = useContext(Context);
   return selector(state);
 };
-

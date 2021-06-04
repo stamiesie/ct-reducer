@@ -1,6 +1,4 @@
 /* eslint-disable max-len */
-
-
 export const initialState = {
   before: [],
   current: '#FF0000',
@@ -8,7 +6,6 @@ export const initialState = {
 };
 
 export function reducer(state, action) {
-    console.log(state.current);
   switch(action.type){
     case 'UNDO':
       return {
